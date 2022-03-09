@@ -4,6 +4,9 @@ CFG=/etc/board.json
 
 . /usr/share/libubox/jshn.sh
 
+board=$(cat /tmp/sysinfo/board_name)
+boardname="${board##*,}"
+
 [ -s $CFG ] || /bin/board_detect || exit 1
 [ -s /etc/config/network -a -s /etc/config/system ] && exit 0
 
@@ -140,7 +143,7 @@ generate_network() {
 		static)
 			local ipad
 			case "$1" in
-				lan) ipad=${ipaddr:-"192.168.1.1"} ;;
+				lan) ipad=${ipaddr:-"192.168.10.1"} ;;
 				*) ipad=${ipaddr:-"192.168.$((addr_offset++)).1"} ;;
 			esac
 
@@ -280,8 +283,12 @@ generate_static_system() {
 	uci -q batch <<-EOF
 		delete system.@system[0]
 		add system system
-		set system.@system[-1].hostname='OpenWrt'
-		set system.@system[-1].timezone='UTC'
+		set system.@system[-1].hostname=${boardname}
+		set system.@system[-1].timezone='EET-2EEST,M3.5.0/3,M10.5.0/4'
+		set system.@system[-1].zonename='Europe/Zaporozhye'
+		set system.@system[-1].log_proto='udp'
+		set system.@system[-1].conloglevel='8'
+		set system.@system[-1].cronloglevel='8'
 		set system.@system[-1].ttylogin='0'
 		set system.@system[-1].log_size='64'
 		set system.@system[-1].urandom_seed='0'
@@ -300,7 +307,7 @@ generate_static_system() {
 		json_select system
 			local hostname
 			if json_get_var hostname hostname; then
-				uci -q set "system.@system[-1].hostname=$hostname"
+				uci -q set "system.@system[-1].hostname=$boardname"
 			fi
 
 			local compat_version

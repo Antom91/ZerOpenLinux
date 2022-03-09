@@ -95,6 +95,12 @@ define U-Boot/Cubieboard
   BUILD_DEVICES:=cubietech_a10-cubieboard
 endef
 
+define U-Boot/Mele_A1000
+  BUILD_SUBTARGET:=cortexa8
+  NAME:=Mele A1000
+  BUILD_DEVICES:=mele_a10-a1000
+endef
+
 define U-Boot/Cubieboard2
   BUILD_SUBTARGET:=cortexa7
   NAME:=Cubieboard2
@@ -194,6 +200,12 @@ define U-Boot/orangepi_zero
   BUILD_SUBTARGET:=cortexa7
   NAME:=Orange Pi Zero (H2+)
   BUILD_DEVICES:=xunlong_orangepi-zero
+endef
+
+define U-Boot/orangepi_zero_lts
+  BUILD_SUBTARGET:=cortexa7
+  NAME:=Orange Pi Zero Lts (H2+)
+  BUILD_DEVICES:=xunlong_orangepi-zero-lts
 endef
 
 define U-Boot/orangepi_one
@@ -315,6 +327,7 @@ UBOOT_TARGETS := \
 	Bananapi_M2_Ultra \
 	Bananapro \
 	Cubieboard \
+	Mele_A1000 \
 	Cubieboard2 \
 	Cubietruck \
 	Hummingbird_A31 \
@@ -333,6 +346,7 @@ UBOOT_TARGETS := \
 	nanopi_neo2 \
 	nanopi_r1 \
 	orangepi_zero \
+	orangepi_zero_lts \
 	orangepi_r1 \
 	orangepi_one \
 	orangepi_pc \

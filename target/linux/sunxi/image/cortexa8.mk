@@ -11,6 +11,14 @@ define Device/cubietech_a10-cubieboard
 endef
 TARGET_DEVICES += cubietech_a10-cubieboard
 
+define Device/mele_a10-a1000
+  DEVICE_VENDOR := Mele
+  DEVICE_MODEL := A1000
+  DEVICE_PACKAGES:=kmod-ata-sunxi kmod-sun4i-emac kmod-rtc-sunxi
+  SOC := sun4i
+endef
+TARGET_DEVICES += mele_a10-a1000
+
 define Device/linksprite_a10-pcduino
   DEVICE_VENDOR := LinkSprite
   DEVICE_MODEL := pcDuino

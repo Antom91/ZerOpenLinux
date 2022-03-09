@@ -1,0 +1,39 @@
+--- a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
++++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
+@@ -80,6 +90,18 @@
+ 			gpios = <&pio 0 17 GPIO_ACTIVE_HIGH>;
+ 		};
+ 	};
++
++	w1: w1 {
++		compatible = "w1-gpio";
++		/*
++		* PWM1/PA10 pin on Orange Pi Zero gpio-10
++		* (0 this is A port, 10 this is gpio-10. for PD14 use  <&pio 3 14 GPIO_ACTIVE_LOW>)
++		*/
++		gpios = <&pio 0 10 (GPIO_ACTIVE_LOW|GPIO_OPEN_DRAIN)>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&w1_pins>;
++		status = "disabled";
++	};
+ 
+ 	reg_vcc_wifi: reg_vcc_wifi {
+ 		compatible = "regulator-fixed";
+@@ -178,6 +200,17 @@
+ 	pinctrl-0 = <&r_ir_rx_pin>;
+ 	status = "disabled";
+ };
++
++&pio {
++	w1_pins: w1_pins {
++		/*
++		* PWM1/PA10 pin on Orange Pi Zero gpio-10
++		*/
++		pins = "PA10";
++		function = "gpio_in";	// in (initially)
++		pull = <0x00>;		// off
++	};
++};
+ 
+ &spi0 {
+ 	/* Disable SPI NOR by default: it optional on Orange Pi Zero boards */

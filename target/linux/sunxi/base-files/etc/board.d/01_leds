@@ -12,6 +12,9 @@ friendlyarm,nanopi-r1)
 	ucidef_set_led_netdev "wan" "WAN" "nanopi:green:wan" "eth0"
 	ucidef_set_led_netdev "lan" "LAN" "nanopi:green:lan" "eth1"
 	;;
+xunlong,orangepi-zero|xunlong,orangepi-zero-lts)
+	ucidef_set_led_netdev "lan" "LAN" "orangepi:red:status" "eth0"
+	;;
 esac
 
 board_config_flush

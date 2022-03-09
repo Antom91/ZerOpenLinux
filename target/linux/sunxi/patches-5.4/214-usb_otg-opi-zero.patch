@@ -1,0 +1,11 @@
+--- a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
++++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
+@@ -388,7 +402,7 @@
+ };
+ 
+ &usb_otg {
+-	dr_mode = "peripheral";
++	dr_mode = "otg";
+ 	status = "okay";
+ };
+ 

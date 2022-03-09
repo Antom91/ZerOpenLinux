@@ -197,7 +197,8 @@ TARGET_DEVICES += xunlong_orangepi-plus
 define Device/xunlong_orangepi-r1
   DEVICE_VENDOR := Xunlong
   DEVICE_MODEL := Orange Pi R1
-  DEVICE_PACKAGES:=kmod-rtc-sunxi kmod-usb-net-rtl8152
+  DEVICE_PACKAGES:=kmod-rtc-sunxi kmod-usb-net-rtl8152 \
+	boot-config
   SOC := sun8i-h2-plus
 endef
 TARGET_DEVICES += xunlong_orangepi-r1
@@ -205,10 +206,20 @@ TARGET_DEVICES += xunlong_orangepi-r1
 define Device/xunlong_orangepi-zero
   DEVICE_VENDOR := Xunlong
   DEVICE_MODEL := Orange Pi Zero
-  DEVICE_PACKAGES:=kmod-rtc-sunxi
+  DEVICE_PACKAGES:=kmod-rtc-sunxi kmod-xradio \
+	boot-config
   SOC := sun8i-h2-plus
 endef
 TARGET_DEVICES += xunlong_orangepi-zero
+
+define Device/xunlong_orangepi-zero-lts
+  DEVICE_VENDOR := Xunlong
+  DEVICE_MODEL := Orange Pi Zero Lts
+  DEVICE_PACKAGES:=kmod-rtc-sunxi kmod-xradio \
+	boot-config
+  SOC := sun8i-h2-plus
+endef
+TARGET_DEVICES += xunlong_orangepi-zero-lts
 
 define Device/xunlong_orangepi-2
   DEVICE_VENDOR := Xunlong

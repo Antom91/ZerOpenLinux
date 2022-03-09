@@ -1,0 +1,31 @@
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -1099,6 +1110,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
+ 	sun8i-h2-plus-bananapi-m2-zero.dtb \
+ 	sun8i-h2-plus-libretech-all-h3-cc.dtb \
+ 	sun8i-h2-plus-orangepi-r1.dtb \
++	sun8i-h2-plus-orangepi-zero-lts.dtb \
+ 	sun8i-h2-plus-orangepi-zero.dtb \
+ 	sun8i-h3-bananapi-m2-plus.dtb \
+ 	sun8i-h3-bananapi-m2-plus-v1.2.dtb \
+--- /dev/null
++++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero-lts.dts
+@@ -0,0 +1,18 @@
++
++/* Orange Pi Zero Lts is based on Orange Pi Zero design */
++#include "sun8i-h2-plus-orangepi-zero.dts"
++
++/ {
++	model = "Xunlong Orange Pi Zero Lts";
++	compatible = "xunlong,orangepi-zero-lts", "allwinner,sun8i-h2-plus";
++};
++
++&cpu_hot_trip {
++	temperature = <32500>; /* ~65°C */
++	hysteresis = <1000>;
++};
++
++&cpu_very_hot_trip {
++	temperature = <45000>; /* ~90°C */
++	hysteresis = <1000>;
++};

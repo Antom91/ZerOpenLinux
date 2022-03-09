@@ -1,0 +1,37 @@
+--- a/arch/arm/dts/Makefile
++++ b/arch/arm/dts/Makefile
+@@ -519,6 +530,7 @@
+ 	sun8i-h2-plus-libretech-all-h3-cc.dtb \
+ 	sun8i-h2-plus-orangepi-r1.dtb \
+ 	sun8i-h2-plus-orangepi-zero.dtb \
++	sun8i-h2-plus-orangepi-zero-lts.dtb \
+ 	sun8i-h3-bananapi-m2-plus.dtb \
+ 	sun8i-h3-bananapi-m2-plus-v1.2.dtb \
+ 	sun8i-h3-beelink-x2.dtb \
+--- /dev/null
++++ b/arch/arm/dts/sun8i-h2-plus-orangepi-zero-lts.dts
+@@ -0,0 +1,8 @@
++
++/* Orange Pi Zero Lts is based on Orange Pi Zero design */
++#include "sun8i-h2-plus-orangepi-zero.dts"
++
++/ {
++	model = "Xunlong Orange Pi Zero Lts";
++	compatible = "xunlong,orangepi-zero-lts", "allwinner,sun8i-h2-plus";
++};
+--- /dev/null
++++ b/configs/orangepi_zero_lts_defconfig
+@@ -0,0 +1,13 @@
++CONFIG_ARM=y
++CONFIG_ARCH_SUNXI=y
++CONFIG_SPL=y
++CONFIG_MACH_SUN8I_H3=y
++CONFIG_DRAM_CLK=624
++# CONFIG_VIDEO_DE2 is not set
++CONFIG_SPL_SPI_SUNXI=y
++# CONFIG_SYS_MALLOC_CLEAR_ON_INIT is not set
++CONFIG_CONSOLE_MUX=y
++CONFIG_DEFAULT_DEVICE_TREE="sun8i-h2-plus-orangepi-zero-lts"
++CONFIG_SUN8I_EMAC=y
++CONFIG_USB_EHCI_HCD=y
++CONFIG_USB_OHCI_HCD=y
