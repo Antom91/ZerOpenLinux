@@ -7,4 +7,4 @@ services:
     entrypoint: /bin/bash
     container_name: 'openwer'
     volumes:
-      - ./ZeroOpenWRT:/ZeroOpenWRT
+      - ./code:/ZeroOpenWRT
