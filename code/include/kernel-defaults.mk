@@ -109,7 +109,7 @@ define Kernel/Configure/Default
 	# grep '=[ym]' $(LINUX_DIR)/.config.set | LC_ALL=C sort | mkhash md5 > $(LINUX_DIR)/.vermagic	#original
 	# grep '=[ym]' $(LINUX_DIR)/.config.set | LC_ALL=C sort | echo 1033d3064257da7eedff8c2c746515a8 > $(LINUX_DIR)/.vermagic	#ARM
 	# grep '=[ym]' $(LINUX_DIR)/.config.set | LC_ALL=C sort | echo 57dcfbca1f3225678d24912f782b4e67 > $(LINUX_DIR)/.vermagic	#64
-	grep '=[ym]' $(LINUX_DIR)/.config.set | LC_ALL=C sort | echo VERMAGIC_HASH_HERE > $(LINUX_DIR)/.vermagic	#64
+	grep '=[ym]' $(LINUX_DIR)/.config.set | LC_ALL=C sort | echo VERMAGIC_HASH_HERE > $(LINUX_DIR)/.vermagic	#Custom
 endef
 
 define Kernel/Configure/Initramfs
